@@ -2,6 +2,7 @@ package com.example.coachemds.controleur;
 
 import android.content.Context;
 
+import com.example.coachemds.model.AccessLocal;
 import com.example.coachemds.model.Profil;
 import com.example.coachemds.outils.Serializer;
 
@@ -12,6 +13,7 @@ public final class Controle {
     private static Controle instance = null;
     private static Profil profil;
     private static String nomFic = "saveprofil";
+    private static AccessLocal accesLocal;
 
     /**
      * Constructeur en privé
@@ -33,6 +35,9 @@ public final class Controle {
 
             // on recupere l'historique
             //recupSerialize(contexte);
+            accesLocal = new AccessLocal(contexte);
+            profil = accesLocal.recupDernier();
+
         }
         return Controle.instance;
 
@@ -51,6 +56,7 @@ public final class Controle {
 
         // serialisation du profil cree
         //Serializer.serialize(nomFic, profil, contexte);
+        accesLocal.ajout(profil);
 
     }
 
