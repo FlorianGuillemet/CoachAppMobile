@@ -1,6 +1,7 @@
 package com.example.coachemds.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Profil implements Serializable
 {
@@ -15,6 +16,7 @@ public class Profil implements Serializable
     private static final String     MSGNORMAL = "normal";
 
     // proprietes
+    private Date dateMesure;
     private Integer poids;
     private Integer taille;
     private Integer age;
@@ -23,8 +25,9 @@ public class Profil implements Serializable
     private String  message;
 
 
-    public Profil(Integer poids, Integer taille, Integer age, Integer sexe)
+    public Profil(Date dateMesure, Integer poids, Integer taille, Integer age, Integer sexe)
     {
+        this.dateMesure = dateMesure;
         this.poids = poids;
         this.taille = taille;
         this.age = age;
@@ -33,6 +36,11 @@ public class Profil implements Serializable
         this.resultImg();
     }
 
+
+    public Date getDateMesure()
+    {
+        return dateMesure;
+    }
 
     public Integer getPoids() {
         return poids;
