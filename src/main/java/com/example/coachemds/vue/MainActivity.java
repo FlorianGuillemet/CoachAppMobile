@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         this.imgSmiley  = (ImageView) findViewById(R.id.imgSmiley);
         this.controle = Controle.getInstance(this);
         ecouteCalcul();
-        recupProfil();
+        //recupProfil();
 
     }
 

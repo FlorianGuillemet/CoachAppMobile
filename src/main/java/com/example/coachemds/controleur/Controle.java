@@ -5,6 +5,8 @@ import android.content.Context;
 import com.example.coachemds.model.Profil;
 import com.example.coachemds.outils.Serializer;
 
+import java.util.Date;
+
 public final class Controle {
 
     private static Controle instance = null;
@@ -30,7 +32,7 @@ public final class Controle {
             Controle.instance = new Controle();
 
             // on recupere l'historique
-            recupSerialize(contexte);
+            //recupSerialize(contexte);
         }
         return Controle.instance;
 
@@ -45,10 +47,10 @@ public final class Controle {
      */
     public void creerProfil(Integer poids, Integer taille, Integer age, Integer sexe, Context contexte)
     {
-        this.profil = new Profil(poids, taille, age, sexe);
+        this.profil = new Profil(new Date(), poids, taille, age, sexe);
 
         // serialisation du profil cree
-        Serializer.serialize(nomFic, profil, contexte);
+        //Serializer.serialize(nomFic, profil, contexte);
 
     }
 
