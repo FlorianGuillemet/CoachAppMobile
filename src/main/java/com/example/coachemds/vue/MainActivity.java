@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Recuperation du profil s'il a été sérialisé
+     * Recuperation du profil (s'il a été sérialisé) afin de les valoriser dans les champs graphiques
      */
     public void recupProfil()
     {
