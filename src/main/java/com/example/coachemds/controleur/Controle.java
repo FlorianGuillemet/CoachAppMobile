@@ -6,6 +6,7 @@ import com.example.coachemds.model.AccesDistant;
 import com.example.coachemds.model.AccessLocal;
 import com.example.coachemds.model.Profil;
 import com.example.coachemds.outils.Serializer;
+import com.example.coachemds.vue.MainActivity;
 
 import org.json.JSONArray;
 
@@ -18,6 +19,7 @@ public final class Controle {
     private static String nomFic = "saveprofil";
     //private static AccessLocal accesLocal;
     private static AccesDistant accesDistant;
+    private static Context contexte;
 
     /**
      * Constructeur en privé
@@ -33,6 +35,11 @@ public final class Controle {
      */
     public static final Controle getInstance( Context contexte )
     {
+        if(contexte != null)
+        {
+            Controle.contexte = contexte;
+        }
+
         if (Controle.instance == null)
         {
             Controle.instance = new Controle();
@@ -67,6 +74,14 @@ public final class Controle {
         accesDistant.envoi("enreg", profil.convertToJSONArray());
 
     }
+
+
+    public void setProfil(Profil profil)
+    {
+        Controle.profil = profil;
+        ((MainActivity) contexte).recupProfil();
+    }
+
 
     /**
      * Recuperation img de profil

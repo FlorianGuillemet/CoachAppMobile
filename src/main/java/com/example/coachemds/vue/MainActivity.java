@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Recuperation du profil s'il a été sérialisé
      */
-    private void recupProfil()
+    public void recupProfil()
     {
         // condition de verification qu'un objet a bien ete serialisé
         if(controle.getPoids() != null)

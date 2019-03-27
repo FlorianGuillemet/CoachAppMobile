@@ -26,7 +26,7 @@ public class AccesDistant implements AsyncResponse
      */
     @Override
     public void processFinish(String output) {
-        Log.d("serveur", "***************"+output);
+        Log.d("serveur", "***************"+output+"************");
 
         // decoupage du message reçu avec :
         String[] message = output.split("%");
