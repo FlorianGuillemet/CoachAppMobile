@@ -2,9 +2,12 @@ package com.example.coachemds.controleur;
 
 import android.content.Context;
 
+import com.example.coachemds.model.AccesDistant;
 import com.example.coachemds.model.AccessLocal;
 import com.example.coachemds.model.Profil;
 import com.example.coachemds.outils.Serializer;
+
+import org.json.JSONArray;
 
 import java.util.Date;
 
@@ -13,7 +16,8 @@ public final class Controle {
     private static Controle instance = null;
     private static Profil profil;
     private static String nomFic = "saveprofil";
-    private static AccessLocal accesLocal;
+    //private static AccessLocal accesLocal;
+    private static AccesDistant accesDistant;
 
     /**
      * Constructeur en privé
@@ -35,8 +39,10 @@ public final class Controle {
 
             // on recupere l'historique
             //recupSerialize(contexte);
-            accesLocal = new AccessLocal(contexte);
-            profil = accesLocal.recupDernier();
+            //accesLocal = new AccessLocal(contexte);
+            accesDistant = new AccesDistant();
+            //profil = accesLocal.recupDernier();
+            accesDistant.envoi("dernier", new JSONArray());
 
         }
         return Controle.instance;
@@ -56,7 +62,9 @@ public final class Controle {
 
         // serialisation du profil cree
         //Serializer.serialize(nomFic, profil, contexte);
-        accesLocal.ajout(profil);
+        //accesLocal.ajout(profil);
+
+        accesDistant.envoi("enreg", profil.convertToJSONArray());
 
     }
 

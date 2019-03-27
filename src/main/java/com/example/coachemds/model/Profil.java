@@ -1,7 +1,11 @@
 package com.example.coachemds.model;
 
+import org.json.JSONArray;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Profil implements Serializable
 {
@@ -102,6 +106,22 @@ public class Profil implements Serializable
             this.message = MSGNORMAL;
         }
 
+    }
+
+    /**
+     * conversion du profil au format JSON ARRAY
+     * @return
+     */
+    public JSONArray convertToJSONArray()
+    {
+        List laListe = new ArrayList();
+        laListe.add(dateMesure);
+        laListe.add(poids);
+        laListe.add(taille);
+        laListe.add(age);
+        laListe.add(sexe);
+
+        return new JSONArray(laListe);
     }
 
 
