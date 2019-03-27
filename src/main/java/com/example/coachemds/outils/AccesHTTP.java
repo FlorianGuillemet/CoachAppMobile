@@ -22,7 +22,7 @@ public class AccesHTTP extends AsyncTask<String, Integer, Long>
 
     private ArrayList<NameValuePair> parametres;
     private String retour = null;
-    private AsyncResponse delegate = null;
+    public AsyncResponse delegate = null;
 
     /**
      * Constructeur
