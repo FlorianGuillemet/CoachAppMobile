@@ -15,7 +15,17 @@ public abstract class MesOutils
      */
     public static Date convertStringToDate(String uneDate)
     {
-        String formatAttendu = "EEE MMM dd hh:mm:ss 'GMT' yyyy";
+        return convertStringToDate(uneDate, "EEE MMM dd hh:mm:ss 'GMT' yyyy");
+    }
+
+    /**
+     * Conversion d'une chaine sous format reçu en paramètre vers une date
+     * @param uneDate
+     * @param formatAttendu
+     * @return
+     */
+    public static Date convertStringToDate(String uneDate, String formatAttendu)
+    {
 
         SimpleDateFormat formatter = new SimpleDateFormat(formatAttendu);
 
@@ -32,7 +42,6 @@ public abstract class MesOutils
 
         return null;
     }
-
 
     /**
      * Conversion d'une date en chaine sous la forme yyyy-MM-dd hh:mm:ss

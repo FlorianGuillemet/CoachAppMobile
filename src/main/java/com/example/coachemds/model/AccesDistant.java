@@ -5,6 +5,7 @@ import android.util.Log;
 import com.example.coachemds.controleur.Controle;
 import com.example.coachemds.outils.AccesHTTP;
 import com.example.coachemds.outils.AsyncResponse;
+import com.example.coachemds.outils.MesOutils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -59,8 +60,12 @@ public class AccesDistant implements AsyncResponse
                     Integer sexe = info.getInt("sexe");
                     String datemesure = info.getString("datemesure");
 
+                    // conversion de la chaine reçue du JSON , en date
+                    Date date = MesOutils.convertStringToDate(datemesure, "yyyy-MM-dd hh:mm:ss");
+                    Log.d("date mysql", "******* retour mysql : "+date);
+
                     // set d'un objet avec les propriétés du JSON
-                    Profil profil = new Profil(new Date(), poids, taille, age, sexe);
+                    Profil profil = new Profil(date, poids, taille, age, sexe);
 
                     // appel de la methode setProfil du controle
                     controle.setProfil(profil);
