@@ -3,7 +3,6 @@ package com.example.coachemds.vue;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,14 +13,13 @@ import android.widget.Toast;
 
 import com.example.coachemds.R;
 import com.example.coachemds.controleur.Controle;
-import com.example.coachemds.model.Profil;
 
-public class MainActivity extends AppCompatActivity {
+public class CalculActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_calcul);
         init();
     }
 
@@ -63,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                //Toast.makeText(MainActivity.this, "test", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(CalculActivity.this, "test", Toast.LENGTH_SHORT).show();
                 //Log.d("message", "clic ok sur le bouton calcul **********");
 
                 Integer poids = 0;
@@ -90,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 // si une des valeurs est nulle, message d'erreur
                 if(poids == 0 || taille == 0 || age == 0)
                 {
-                    Toast.makeText(MainActivity.this, "Saisie incorrecte", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CalculActivity.this, "Saisie incorrecte", Toast.LENGTH_SHORT).show();
                 } else {
                     // sinon, methode afficheResult
                     afficheResult(poids, taille, age, sexe);
