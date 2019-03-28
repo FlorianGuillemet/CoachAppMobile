@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
                 this.rdHomme.setChecked(true);
             }
             // on veut la simulation du bouton calculer
-            findViewById(R.id.btnCalc).performClick();
+            //findViewById(R.id.btnCalc).performClick();
 
         }
     }
