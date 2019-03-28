@@ -1,11 +1,13 @@
 package com.example.coachemds.vue;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -47,6 +49,7 @@ public class CalculActivity extends AppCompatActivity {
         this.imgSmiley  = (ImageView) findViewById(R.id.imgSmiley);
         this.controle = Controle.getInstance(this);
         ecouteCalcul();
+        ecouteRetourMenu();
         recupProfil();
 
 
@@ -153,5 +156,21 @@ public class CalculActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Retour au menu
+     */
+    private void ecouteRetourMenu()
+    {
+        ((ImageButton)findViewById(R.id.btnRetourDeCalcul)).setOnClickListener(new ImageButton.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(CalculActivity.this, MainActivity.class);
+
+                startActivity(intent);
+
+            }
+        });
+    }
 
 }
