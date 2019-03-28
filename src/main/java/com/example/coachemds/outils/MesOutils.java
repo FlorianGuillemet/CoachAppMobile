@@ -32,4 +32,21 @@ public abstract class MesOutils
 
         return null;
     }
+
+
+    /**
+     * Conversion d'une date en chaine sous la forme yyyy-MM-dd hh:mm:ss
+     * @param uneDate
+     * @return
+     */
+    public static String convertDateToString(Date uneDate)
+    {
+        String formatAttendu = "yyyy-MM-dd hh:mm:ss";
+
+        SimpleDateFormat date = new SimpleDateFormat(formatAttendu);
+
+        return date.format(uneDate);
+
+    }
+
 }
