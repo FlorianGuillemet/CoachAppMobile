@@ -7,7 +7,7 @@ import com.example.coachemds.model.AccesDistant;
 import com.example.coachemds.model.AccessLocal;
 import com.example.coachemds.model.Profil;
 import com.example.coachemds.outils.Serializer;
-import com.example.coachemds.vue.MainActivity;
+import com.example.coachemds.vue.CalculActivity;
 
 import org.json.JSONArray;
 
@@ -81,7 +81,7 @@ public final class Controle {
     public void setProfil(Profil profil)
     {
         Controle.profil = profil;
-        ((MainActivity) contexte).recupProfil();
+        ((CalculActivity) contexte).recupProfil();
     }
 
 
