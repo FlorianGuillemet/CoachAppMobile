@@ -1,6 +1,7 @@
 package com.example.coachemds.controleur;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.example.coachemds.model.AccesDistant;
 import com.example.coachemds.model.AccessLocal;
@@ -66,6 +67,7 @@ public final class Controle {
     public void creerProfil(Integer poids, Integer taille, Integer age, Integer sexe, Context contexte)
     {
         this.profil = new Profil(new Date(), poids, taille, age, sexe);
+        Log.d("date", "**********"+new Date());
 
         // serialisation du profil cree
         //Serializer.serialize(nomFic, profil, contexte);
