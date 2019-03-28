@@ -11,6 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class AccesDistant implements AsyncResponse
@@ -73,6 +74,39 @@ public class AccesDistant implements AsyncResponse
                 } catch (JSONException e) {
                     Log.d("Erreur", "Conversion JSON impossible"+ e.toString());
                 }
+            } else if (message[0].equals("tous"))
+            {
+                Log.d("tous","********"+message[1]);
+                try {
+                    JSONArray jSonInfo = new JSONArray(message[1]);
+                    ArrayList<Profil> lesProfils = new ArrayList<Profil>();
+
+                    for (int i = 0; i<jSonInfo.length(); i++){
+                        JSONObject info = new JSONObject(jSonInfo.get(i).toString());
+                        // recuperation des données JSON dans des variables
+                        Integer poids = info.getInt("poids");
+                        Integer taille = info.getInt("taille");
+                        Integer age = info.getInt("age");
+                        Integer sexe = info.getInt("sexe");
+                        String datemesure = info.getString("datemesure");
+
+                        // conversion de la chaine reçue du JSON , en date
+                        Date date = MesOutils.convertStringToDate(datemesure, "yyyy-MM-dd hh:mm:ss");
+
+                        // creation d'un profil
+                        Profil profil = new Profil(date, poids, taille, age, sexe);
+
+                        // ajout à l'ArrayList
+                        lesProfils.add(profil);
+                    }
+                    // envoi de l'arraylist au Controle
+                    controle.setLesProfils(lesProfils);
+
+                } catch (JSONException e) {
+                    Log.d("Erreur", "Conversion JSON impossible"+ e.toString());
+                    e.printStackTrace();
+                }
+
             } else if (message[0].equals("Erreur !"))
             {
                 Log.d("Erreur !","********"+message[1]);
