@@ -1,5 +1,7 @@
 package com.example.coachemds.model;
 
+import com.example.coachemds.outils.MesOutils;
+
 import org.json.JSONArray;
 
 import java.io.Serializable;
@@ -115,7 +117,7 @@ public class Profil implements Serializable
     public JSONArray convertToJSONArray()
     {
         List laListe = new ArrayList();
-        laListe.add(dateMesure);
+        laListe.add(MesOutils.convertDateToString(dateMesure));
         laListe.add(poids);
         laListe.add(taille);
         laListe.add(age);

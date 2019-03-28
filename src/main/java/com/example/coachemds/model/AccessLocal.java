@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.coachemds.outils.MesOutils;
 import com.example.coachemds.outils.MySQLiteOpenHelper;
 
 import java.util.Date;
@@ -62,7 +63,7 @@ public class AccessLocal
         //si je ne suis pas après le dernier, alors je vais le récupérer
         if (!curseur.isAfterLast())
         {
-            Date date = new Date();
+            Date date = MesOutils.convertStringToDate(curseur.getString(0));
             Integer poids = curseur.getInt(1);
             Integer taille = curseur.getInt(2);
             Integer age = curseur.getInt(3);
