@@ -11,6 +11,7 @@ import com.example.coachemds.vue.CalculActivity;
 
 import org.json.JSONArray;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public final class Controle {
@@ -21,6 +22,7 @@ public final class Controle {
     //private static AccessLocal accesLocal;
     private static AccesDistant accesDistant;
     private static Context contexte;
+    private ArrayList<Profil> lesProfils = new ArrayList<Profil>();
 
     /**
      * Constructeur en privé
@@ -50,11 +52,20 @@ public final class Controle {
             //accesLocal = new AccessLocal(contexte);
             accesDistant = new AccesDistant();
             //profil = accesLocal.recupDernier();
-            accesDistant.envoi("dernier", new JSONArray());
+            //accesDistant.envoi("dernier", new JSONArray());
+            accesDistant.envoi("tous", new JSONArray());
 
         }
         return Controle.instance;
 
+    }
+
+    public ArrayList<Profil> getLesProfils() {
+        return lesProfils;
+    }
+
+    public void setLesProfils(ArrayList<Profil> lesProfils) {
+        this.lesProfils = lesProfils;
     }
 
     /**
@@ -67,6 +78,8 @@ public final class Controle {
     public void creerProfil(Integer poids, Integer taille, Integer age, Integer sexe, Context contexte)
     {
         this.profil = new Profil(new Date(), poids, taille, age, sexe);
+        lesProfils.add(profil);
+
         Log.d("date", "**********"+new Date());
 
         // serialisation du profil cree
@@ -91,7 +104,8 @@ public final class Controle {
      */
     public float getImg()
     {
-        return this.profil.getImg();
+        //return this.profil.getImg();
+        return lesProfils.get(lesProfils.size()-1).getImg();
     }
 
     /**
@@ -100,7 +114,8 @@ public final class Controle {
      */
     public String getMessage()
     {
-        return this.profil.getMessage();
+        //return this.profil.getMessage();
+        return lesProfils.get(lesProfils.size()-1).getMessage();
     }
 
     /**
