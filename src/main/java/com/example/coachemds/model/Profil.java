@@ -1,5 +1,7 @@
 package com.example.coachemds.model;
 
+import android.support.annotation.NonNull;
+
 import com.example.coachemds.outils.MesOutils;
 
 import org.json.JSONArray;
@@ -9,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Profil implements Serializable
+public class Profil implements Serializable, Comparable
 {
 
     // constantes de classe
@@ -126,5 +128,14 @@ public class Profil implements Serializable
         return new JSONArray(laListe);
     }
 
-
+    /**
+     * methode de l'interface comparable
+     * comparaison de la date envoyée en paramètre avec la date du profil
+     * @param o
+     * @return
+     */
+    @Override
+    public int compareTo(@NonNull Object o) {
+        return dateMesure.compareTo(((Profil)o).getDateMesure());
+    }
 }

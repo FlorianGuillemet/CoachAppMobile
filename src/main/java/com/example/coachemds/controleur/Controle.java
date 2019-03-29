@@ -90,6 +90,16 @@ public final class Controle {
 
     }
 
+    /**
+     * methode qui permet de supprimer un profil dans la base distante et la collection
+     * @param profil
+     */
+    public void deleteProfil(Profil profil)
+    {
+        accesDistant.envoi("delete", profil.convertToJSONArray());
+        lesProfils.remove(profil);
+    }
+
 
     public void setProfil(Profil profil)
     {

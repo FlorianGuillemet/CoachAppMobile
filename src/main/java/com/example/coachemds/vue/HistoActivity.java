@@ -12,6 +12,7 @@ import com.example.coachemds.controleur.Controle;
 import com.example.coachemds.model.Profil;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class HistoActivity extends AppCompatActivity {
 
@@ -49,6 +50,8 @@ public class HistoActivity extends AppCompatActivity {
     private void creerListe()
     {
         ArrayList<Profil> lesProfils = controle.getLesProfils();
+
+        Collections.sort(lesProfils, Collections.<Profil>reverseOrder());
 
         if(lesProfils != null) {
             ListView lstHisto = (ListView)findViewById(R.id.lstHisto);

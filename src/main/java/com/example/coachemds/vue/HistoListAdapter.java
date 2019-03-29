@@ -9,6 +9,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.coachemds.R;
+import com.example.coachemds.controleur.Controle;
 import com.example.coachemds.model.Profil;
 import com.example.coachemds.outils.MesOutils;
 
@@ -22,7 +23,7 @@ public class HistoListAdapter extends BaseAdapter
 
     private ArrayList<Profil> lesProfils;
     private LayoutInflater inflater;
-
+    private Controle controle;
 
     /**
      * constructeur
@@ -32,6 +33,7 @@ public class HistoListAdapter extends BaseAdapter
     {
         this.lesProfils = lesProfils;
         this.inflater = LayoutInflater.from(contexte);
+        this.controle = Controle.getInstance(null);
     }
 
     /**
@@ -100,6 +102,21 @@ public class HistoListAdapter extends BaseAdapter
         holder.txtListDate.setText(MesOutils.convertDateToString(lesProfils.get(i).getDateMesure()));
         holder.txtListIMG.setText(MesOutils.format2Decimal(lesProfils.get(i).getImg()));
         holder.btnListSuppr.setTag(i);
+
+        // clic sur la croix pour supprimer le profil enregistré
+        holder.btnListSuppr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                int position = (int)v.getTag();
+
+                // demande de suppression au controleur
+                controle.deleteProfil(lesProfils.get(position));
+
+                // rafraichir la liste
+                notifyDataSetChanged();
+            }
+        });
 
         return view;
     }

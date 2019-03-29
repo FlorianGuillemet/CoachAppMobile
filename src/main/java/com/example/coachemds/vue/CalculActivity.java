@@ -53,7 +53,6 @@ public class CalculActivity extends AppCompatActivity {
         ecouteRetourMenu();
         recupProfil();
 
-
     }
 
     /**
