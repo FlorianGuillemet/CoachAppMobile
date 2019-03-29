@@ -24,6 +24,7 @@ public class HistoListAdapter extends BaseAdapter
     private ArrayList<Profil> lesProfils;
     private LayoutInflater inflater;
     private Controle controle;
+    private Context contexte;
 
     /**
      * constructeur
@@ -34,6 +35,7 @@ public class HistoListAdapter extends BaseAdapter
         this.lesProfils = lesProfils;
         this.inflater = LayoutInflater.from(contexte);
         this.controle = Controle.getInstance(null);
+        this.contexte = contexte;
     }
 
     /**
@@ -117,7 +119,35 @@ public class HistoListAdapter extends BaseAdapter
                 notifyDataSetChanged();
             }
         });
+        holder.txtListDate.setTag(i);
 
+        // clic sur le reste de la ligne
+        holder.txtListDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                int position = (int)v.getTag();
+
+                // demande de l'affichage du profil dans CalculActivity
+                ((HistoActivity)contexte).afficheProfil(lesProfils.get(position));
+
+            }
+        });
+
+        holder.txtListIMG.setTag(i);
+
+        // clic sur le reste de la ligne
+        holder.txtListIMG.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                int position = (int)v.getTag();
+
+                // demande de l'affichage du profil dans CalculActivity
+                ((HistoActivity)contexte).afficheProfil(lesProfils.get(position));
+
+            }
+        });
         return view;
     }
 

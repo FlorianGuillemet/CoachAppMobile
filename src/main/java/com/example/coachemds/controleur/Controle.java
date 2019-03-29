@@ -77,8 +77,8 @@ public final class Controle {
      */
     public void creerProfil(Integer poids, Integer taille, Integer age, Integer sexe, Context contexte)
     {
-        this.profil = new Profil(new Date(), poids, taille, age, sexe);
-        lesProfils.add(profil);
+        Profil unProfil = new Profil(new Date(), poids, taille, age, sexe);
+        lesProfils.add(unProfil);
 
         Log.d("date", "**********"+new Date());
 
@@ -86,7 +86,7 @@ public final class Controle {
         //Serializer.serialize(nomFic, profil, contexte);
         //accesLocal.ajout(profil);
 
-        accesDistant.envoi("enreg", profil.convertToJSONArray());
+        accesDistant.envoi("enreg", unProfil.convertToJSONArray());
 
     }
 
@@ -104,7 +104,7 @@ public final class Controle {
     public void setProfil(Profil profil)
     {
         Controle.profil = profil;
-        ((CalculActivity) contexte).recupProfil();
+        //((CalculActivity) contexte).recupProfil();
     }
 
 

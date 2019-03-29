@@ -150,6 +150,9 @@ public class CalculActivity extends AppCompatActivity {
             {
                 this.rdHomme.setChecked(true);
             }
+            // remettre à vide le profil
+            controle.setProfil(null);
+            
             // on veut la simulation du bouton calculer
             //findViewById(R.id.btnCalc).performClick();
 
@@ -166,7 +169,8 @@ public class CalculActivity extends AppCompatActivity {
             public void onClick(View v)
             {
                 Intent intent = new Intent(CalculActivity.this, MainActivity.class);
-
+                //ferme l'activite
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
 
             }

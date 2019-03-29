@@ -37,7 +37,8 @@ public class HistoActivity extends AppCompatActivity {
             public void onClick(View v)
             {
                 Intent intent = new Intent(HistoActivity.this, MainActivity.class);
-
+                //ferme l'activite
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
 
             }
@@ -58,6 +59,20 @@ public class HistoActivity extends AppCompatActivity {
             HistoListAdapter adapter = new HistoListAdapter(this, lesProfils);
             lstHisto.setAdapter(adapter);
         }
+    }
+
+    /**
+     * demande d'afficher le profil dans CalculActivity
+     */
+    public void afficheProfil(Profil profil)
+    {
+        controle.setProfil(profil);
+
+        Intent intent = new Intent(HistoActivity.this, CalculActivity.class);
+        //ferme l'activite
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+        startActivity(intent);
     }
 
 }
