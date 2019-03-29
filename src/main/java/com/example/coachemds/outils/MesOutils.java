@@ -58,4 +58,15 @@ public abstract class MesOutils
 
     }
 
+    /**
+     * retourne un float au format String avec un chiffre après la virgule
+     * @param valeur
+     * @return
+     */
+    public static String format2Decimal(Float valeur)
+    {
+
+        return String.format("%.01f", valeur);
+    }
+
 }

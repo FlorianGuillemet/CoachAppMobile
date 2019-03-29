@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.coachemds.R;
 import com.example.coachemds.controleur.Controle;
+import com.example.coachemds.outils.MesOutils;
 
 public class CalculActivity extends AppCompatActivity {
 
@@ -128,7 +129,7 @@ public class CalculActivity extends AppCompatActivity {
             lblIMG.setTextColor(Color.RED);
         }
 
-        lblIMG.setText( "Score IMG : "+String.format("%.01f", img)+ ", votre IMG est : "+message);
+        lblIMG.setText( "Score IMG : "+ MesOutils.format2Decimal(img)+ ", votre IMG est : "+message);
 
     }
 
