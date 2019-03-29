@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity
 
         ecouteMenu((ImageButton) findViewById(R.id.btnMenuIMG), CalculActivity.class);
 
-        //ecouteMenu((ImageButton) findViewById(R.id.btnMenuHistorique), HistoActivity.class);
+        ecouteMenu((ImageButton) findViewById(R.id.btnMenuHistorique), HistoActivity.class);
 
     }
 
