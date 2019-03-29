@@ -7,14 +7,19 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.example.coachemds.R;
+import com.example.coachemds.controleur.Controle;
 
 public class MainActivity extends AppCompatActivity
 {
+
+    private Controle controle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        controle = Controle.getInstance(this);
 
         ecouteMenu((ImageButton) findViewById(R.id.btnMenuIMG), CalculActivity.class);
 
